@@ -18,7 +18,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
     }
-
+    public String ErrorMessage="Uncaught Error";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +42,7 @@ public class MainFrame extends javax.swing.JFrame {
         EmailText = new javax.swing.JTextField();
         MessageLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        MessageTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +54,17 @@ public class MainFrame extends javax.swing.JFrame {
 
         FNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         FNameLabel.setText("First Name");
+
+        FNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FNameTextActionPerformed(evt);
+            }
+        });
+        FNameText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                FNameTextKeyPressed(evt);
+            }
+        });
 
         AgeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         AgeLabel.setText("Age");
@@ -81,9 +92,9 @@ public class MainFrame extends javax.swing.JFrame {
         MessageLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         MessageLabel.setText("Message");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        MessageTextArea.setColumns(20);
+        MessageTextArea.setRows(5);
+        jScrollPane1.setViewportView(MessageTextArea);
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
@@ -161,18 +172,42 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
-        String name=FNameText.getText();
-        String age= AgeText.getText();
+        
+        String FName=FNameText.getText();
+        String LName=LNameText.getText();
+        String Email=EmailText.getText();
+        String Age= AgeText.getText();
+        String Message=MessageTextArea.getText();
+
+        String Output = "No Input";
+        Output="First Name: "+FName+"\nLast Name: "+LName+"\nEmail: "+Email+"\nAge: "+Age+"\nMessage: "+Message;
+        JOptionPane.showMessageDialog(this,Output, "User Information", JOptionPane.INFORMATION_MESSAGE);
+
         
         
-        System.out.println(name+age);
-        JOptionPane.showMessageDialog(this,name+age, "User Information", JOptionPane.INFORMATION_MESSAGE);
+        
+        
+        
+        
+        
+        System.out.println(FName+Age);
+        JOptionPane.showMessageDialog(this,ErrorMessage, "User Information", JOptionPane.ERROR_MESSAGE);
         
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
     private void EmailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailTextActionPerformed
+
+    private void FNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FNameTextActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_FNameTextActionPerformed
+
+    private void FNameTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FNameTextKeyPressed
+       
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FNameTextKeyPressed
 
     /**
      * @param args the command line arguments
@@ -221,9 +256,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField LNameText;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel MessageLabel;
+    private javax.swing.JTextArea MessageTextArea;
     private javax.swing.JButton SubmitButton;
     private javax.swing.JLabel TitleLabel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
