@@ -149,8 +149,8 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                             .addComponent(EmailText, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
-                        .addComponent(ImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(ImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,8 +190,8 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel1))))
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(ImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                        .addComponent(ImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -339,10 +339,12 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,ImagePath);
         
         ImageIcon icon = new ImageIcon(ImagePath);
+        Image newimg = icon.getImage().getScaledInstance(ImageLabel.getWidth(), ImageLabel.getHeight(), Image.SCALE_SMOOTH);
+        icon = new ImageIcon(newimg); 
         JOptionPane.showMessageDialog(null,"Successfully uploaded","Display Image", JOptionPane.INFORMATION_MESSAGE,(Icon) icon);
         
-       Image imag = icon.getImage().getScaledInstance(ImageLabel.getWidth(), ImageLabel.getHeight(), Image.SCALE_SMOOTH);
-           ImageLabel.setIcon(new ImageIcon(imag));  
+       
+        ImageLabel.setIcon(new ImageIcon(newimg));  
 
         
        

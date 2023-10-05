@@ -75,10 +75,10 @@
                               <Component id="EmailText" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ImageLabel" pref="277" max="32767" attributes="0"/>
+                          <Component id="ImageLabel" min="-2" pref="456" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -129,10 +129,10 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="ImageLabel" min="-2" pref="221" max="-2" attributes="0"/>
+                          <Component id="ImageLabel" min="-2" pref="303" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="97" max="32767" attributes="0"/>
+                  <EmptySpace pref="167" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
