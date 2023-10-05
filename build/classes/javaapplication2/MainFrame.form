@@ -27,10 +27,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="MainPanel" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,33 +51,34 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="TitleLabel" min="-2" pref="356" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="AgeLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="EmailLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="FNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="MessageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="EmailText" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jScrollPane1" alignment="1" pref="253" max="32767" attributes="0"/>
-                              <Component id="AgeText" alignment="1" max="32767" attributes="0"/>
-                              <Component id="LNameText" alignment="1" max="32767" attributes="0"/>
-                              <Component id="FNameText" alignment="1" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="SubmitButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="AgeLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="EmailLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="FNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="LNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="MessageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="TitleLabel" min="-2" pref="356" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="SubmitButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ImageButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FNameText" alignment="0" max="32767" attributes="0"/>
+                              <Component id="LNameText" alignment="0" max="32767" attributes="0"/>
+                              <Component id="AgeText" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" alignment="0" pref="319" max="32767" attributes="0"/>
+                              <Component id="EmailText" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="ImageLabel" pref="277" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -86,7 +87,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="TitleLabel" min="-2" pref="34" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="FNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="FNameText" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -96,24 +97,42 @@
                       <Component id="LNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="LNameText" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="AgeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="AgeText" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="EmailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="EmailText" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="MessageLabel" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="AgeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="AgeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="EmailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="EmailText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="MessageLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="ImageButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Component id="SubmitButton" min="-2" pref="34" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="ImageLabel" min="-2" pref="221" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="SubmitButton" min="-2" pref="34" max="-2" attributes="0"/>
-                  <EmptySpace pref="136" max="32767" attributes="0"/>
+                  <EmptySpace pref="97" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -125,7 +144,7 @@
               <Font name="Franklin Gothic Medium" size="24" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="User Form "/>
+            <Property name="text" type="java.lang.String" value="User Registration Form "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="FNameLabel">
@@ -209,6 +228,24 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Upload Image"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="ImageButton">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="8e" green="8e" red="8e" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Choose File..."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ImageButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ImageLabel">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

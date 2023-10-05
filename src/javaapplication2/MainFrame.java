@@ -4,10 +4,19 @@
  */
 package javaapplication2;
 
+import java.awt.Image;
+import static java.awt.Image.SCALE_SMOOTH;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -20,8 +29,10 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        
     }
-    public String ErrorMessage="Uncaught Error";
+    //public String ErrorMessage="Uncaught Error";
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +57,9 @@ public class MainFrame extends javax.swing.JFrame {
         MessageLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         MessageTextArea = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        ImageButton = new javax.swing.JButton();
+        ImageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,7 +67,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         TitleLabel.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         TitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TitleLabel.setText("User Form ");
+        TitleLabel.setText("User Registration Form ");
 
         FNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         FNameLabel.setText("First Name");
@@ -99,39 +113,51 @@ public class MainFrame extends javax.swing.JFrame {
         MessageTextArea.setRows(5);
         jScrollPane1.setViewportView(MessageTextArea);
 
+        jLabel1.setText("Upload Image");
+
+        ImageButton.setBackground(new java.awt.Color(142, 142, 142));
+        ImageButton.setText("Choose File...");
+        ImageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImageButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
+            .addGroup(MainPanelLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AgeLabel)
+                    .addComponent(EmailLabel)
+                    .addComponent(FNameLabel)
+                    .addComponent(LNameLabel)
+                    .addComponent(MessageLabel)
+                    .addComponent(jLabel1))
+                .addGap(63, 63, 63)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 3, Short.MAX_VALUE))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AgeLabel)
-                            .addComponent(EmailLabel)
-                            .addComponent(FNameLabel)
-                            .addComponent(LNameLabel)
-                            .addComponent(MessageLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EmailText, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-                            .addComponent(AgeText, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(LNameText, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(FNameText, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(SubmitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(203, 203, 203))
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(SubmitButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ImageButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(FNameText, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LNameText, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AgeText, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                            .addComponent(EmailText, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addComponent(ImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(67, 67, 67)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FNameLabel)
                     .addComponent(FNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -139,21 +165,33 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LNameLabel)
                     .addComponent(LNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AgeLabel)
-                    .addComponent(AgeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmailLabel)
-                    .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MessageLabel)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AgeLabel)
+                            .addComponent(AgeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(EmailLabel)
+                            .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MessageLabel)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(ImageButton)
+                                .addGap(64, 64, 64)
+                                .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1))))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(ImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,7 +201,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,6 +233,8 @@ public class MainFrame extends javax.swing.JFrame {
         Pattern NamePattern =Pattern.compile(NameRegex);
         Matcher MatchFname =NamePattern.matcher(FName);
         Matcher MatchLname =NamePattern.matcher(LName);
+        
+        
 
         try{
               if(MatchFname.matches()==false){
@@ -286,6 +326,30 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_FNameTextKeyPressed
 
+    private void ImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImageButtonActionPerformed
+        // TODO add your handling code here:
+         JFileChooser ChooseImage = new JFileChooser();
+        
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        ChooseImage.addChoosableFileFilter(fnef);
+        int showOpenDialog = ChooseImage.showOpenDialog(null);
+        if(showOpenDialog == JFileChooser.APPROVE_OPTION) {
+            File ImageFile = ChooseImage.getSelectedFile();
+            String ImagePath = ImageFile.getAbsolutePath();
+            JOptionPane.showMessageDialog(null,ImagePath);
+        
+        ImageIcon icon = new ImageIcon(ImagePath);
+        JOptionPane.showMessageDialog(null,"Successfully uploaded","Display Image", JOptionPane.INFORMATION_MESSAGE,(Icon) icon);
+        
+       Image imag = icon.getImage().getScaledInstance(ImageLabel.getWidth(), ImageLabel.getHeight(), Image.SCALE_SMOOTH);
+           ImageLabel.setIcon(new ImageIcon(imag));  
+
+        
+       
+        
+        } 
+    }//GEN-LAST:event_ImageButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -329,6 +393,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel FNameLabel;
     private javax.swing.JTextField FNameText;
     private javax.swing.ButtonGroup GenderGroup;
+    private javax.swing.JButton ImageButton;
+    private javax.swing.JLabel ImageLabel;
     private javax.swing.JLabel LNameLabel;
     private javax.swing.JTextField LNameText;
     private javax.swing.JPanel MainPanel;
@@ -336,6 +402,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea MessageTextArea;
     private javax.swing.JButton SubmitButton;
     private javax.swing.JLabel TitleLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
