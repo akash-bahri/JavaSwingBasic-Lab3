@@ -4,6 +4,9 @@
  */
 package javaapplication2;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -181,17 +184,91 @@ public class MainFrame extends javax.swing.JFrame {
 
         String Output = "No Input";
         Output="First Name: "+FName+"\nLast Name: "+LName+"\nEmail: "+Email+"\nAge: "+Age+"\nMessage: "+Message;
-        JOptionPane.showMessageDialog(this,Output, "User Information", JOptionPane.INFORMATION_MESSAGE);
+        
 
+
+        String Numbers = "[0-9]+";
+        Pattern NumberRegex =Pattern.compile(Numbers);
+        Matcher MAge =NumberRegex.matcher(Age);
+
+        String NameRegex = "[a-zA-Z]+";
+        Pattern NamePattern =Pattern.compile(NameRegex);
+        Matcher MatchFname =NamePattern.matcher(FName);
+        Matcher MatchLname =NamePattern.matcher(LName);
+
+        try{
+              if(MatchFname.matches()==false){
+                
+                throw new Exception("First Name is not a string");
+            }
+
+            if(MatchLname.matches()==false){
+                
+                throw new Exception("Last Name is not a string");
+            }
+            if(FName.isEmpty()){
+                
+                throw new Exception("First Name is empty");
+            }
+            if(LName.isEmpty()){
+                
+                throw new Exception("Last Name is empty");
+            }
+
+            if(MAge.matches()==false){
+                
+                throw new Exception("Age is not a number");
+            }
+            if(Integer.parseInt(Age)<18){
+                
+                throw new Exception("Age is less than 18");
+            }
+            if(Age.isEmpty()){
+                
+                throw new Exception("Age is empty");
+            }          
+
+            if(Email.contains("@")==false){
+                
+                throw new Exception("Email does not contain @");
+            }
+
+            if(Email.contains(".")==false){
+                
+                throw new Exception("Email does not contain .");
+            }
+
+            if(Email.contains(" ")){
+
+                throw new Exception("Email contains space");
+            }
+
+            if(Email.isEmpty()){
+                
+                throw new Exception("Email is empty");
+            }
+
+            if(Message.isEmpty()){
+                
+                throw new Exception("Message is empty");
+            }
+
+         JOptionPane.showMessageDialog(this,Output, "User Information", JOptionPane.INFORMATION_MESSAGE);
+        }
         
+        catch(Exception e){
+            
+            JOptionPane.showMessageDialog(this,e.getMessage(), "User Information", JOptionPane.ERROR_MESSAGE);
+        }
         
+       
         
         
         
         
         
         System.out.println(FName+Age);
-        JOptionPane.showMessageDialog(this,ErrorMessage, "User Information", JOptionPane.ERROR_MESSAGE);
+        
         
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
